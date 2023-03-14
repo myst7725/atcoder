@@ -1,21 +1,20 @@
-N = int(input())
-A = list(map(int,input().split()))
-C = [0]*N
+N, Q = map(int,input().split())
+card = [0]*N
+for _ in range(Q):
+    #event
+    c, x = map(int,input().split())
 
-for i in range(N):
-    if C[i]==1:
-        pass
-    else:
-        a = A[i]
-        C[a-1] = 1
+    if c == 1:
+        card[x-1]+=1
 
-print(C.count(0))
-X = []
-for i in range(N):
-    if C[i] == 0:
-        X.append(i+1)
+    elif c == 2:
+        card[x-1]+=2
+    
     else:
-        pass
-print(*X)
+        if 2 <= card[x-1]:
+            print("Yes")
+        else:
+            print("No")
+
 
 
